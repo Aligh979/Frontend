@@ -1,0 +1,147 @@
+/* Grunnleggende reset for margin og padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stiler for hele siden */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Header-stil */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+header img {
+    width: 150px; /* Juster bildestørrelsen etter behov */
+    height: auto;
+    margin-top: 10px;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+/* Stiler for seksjonen for prosjekter */
+section#prosjekter {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+section#prosjekter h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Sentrer innholdet */
+}
+
+.project-card {
+    flex: 1 1 30%;
+    margin: 1.5%;
+    padding: 15px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.project-card h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 14px;
+}
+
+/* Stiler for utdanningsseksjonen */
+section#utdanning {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+section#utdanning h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section#utdanning ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+section#utdanning ul li {
+    margin-bottom: 10px;
+}
+
+/* Stiler for arbeidserfaringsseksjonen */
+section#erfaring {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+section#erfaring h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section#erfaring ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section#erfaring ul li {
+    margin-bottom: 10px;
+}
+
+/* Media Queries for Responsiv Design */
+
+/* Skjermer mindre enn 768px */
+@media (max-width: 768px) {
+    .project-card {
+        flex: 1 1 45%; /* To kolonner på middels skjermstørrelser */
+        margin: 1.5%;
+    }
+}
+
+/* Skjermer mindre enn 480px */
+@media (max-width: 480px) {
+    .project-card {
+        flex: 1 1 100%; /* En kolonne på små skjermstørrelser */
+        margin: 5% 0; /* Mindre margin på toppen og bunnen */
+    }
+
+    header img {
+        width: 100px; /* Reduser bildet for mindre skjerm */
+    }
+}
