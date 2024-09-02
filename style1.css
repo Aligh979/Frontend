@@ -43,6 +43,25 @@ ul {
 }
 
 li {
-    padding: 10px;
+    display: flex; /* Dette gjør at innholdet i <li> vises på samme linje */
+    justify-content: space-between; /* Fordeler innholdet med plass imellom */
+    align-items: center; /* Sentraliserer innholdet vertikalt */
+    padding: 3px;
     border-bottom: 1px solid #ddd;
 }
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+
