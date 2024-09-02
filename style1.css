@@ -44,9 +44,9 @@ ul {
 }
 
 li {
-    display: flex; /* Dette gjør at innholdet i <li> vises på samme linje */
-    justify-content: space-between; /* Fordeler innholdet med plass imellom */
-    align-items: center; /* Sentraliserer innholdet vertikalt */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
     padding: 3px;
     border-bottom: 1px solid #ddd;
 }
