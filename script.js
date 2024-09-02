@@ -4,7 +4,8 @@ document.getElementById('addButton').addEventListener('click', function() {
 
     if (country.trim() !== "") {
         addCountryToList(country);
-        countryInput.value = ''; // Rens input-feltet etter at verdien er lagt til
+        countryInput.value = ''; 
+        updateCountryList(); 
     } else {
         alert('Please enter a country.');
     }
@@ -12,24 +13,36 @@ document.getElementById('addButton').addEventListener('click', function() {
 
 function addCountryToList(country) {
     const countryList = document.getElementById('countryList');
-
-    // Opprett et nytt liste-element
     const listItem = document.createElement('li');
     listItem.textContent = country;
 
-    // Opprett en slett-knapp
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'delete-button';
 
-    // Legg til en event listener for å fjerne liste-elementet når slett-knappen blir klikket
     deleteButton.addEventListener('click', function() {
         countryList.removeChild(listItem);
+        updateCountryList(); 
     });
 
-    // Legg slett-knappen til liste-elementet
     listItem.appendChild(deleteButton);
-
-    // Legg det nye liste-elementet til listen
     countryList.appendChild(listItem);
 }
+
+// Funksjon for å oppdatere listen basert på søkeord
+function updateCountryList() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const countryList = Array.from(document.querySelectorAll('#countryList li'));
+
+    countryList.forEach(function(listItem) {
+        const countryName = listItem.firstChild.textContent.toLowerCase();
+        if (countryName.startsWith(searchInput)) {
+            listItem.style.display = ''; 
+        } else {
+            listItem.style.display = 'none'; 
+        }
+    });
+}
+
+// Legg til event listener for søkefeltet
+document.getElementById('searchInput').addEventListener('input', updateCountryList);
