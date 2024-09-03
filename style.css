@@ -21,25 +21,29 @@ header {
     border: 1px solid #ccc;
 }
 
-header img {
-    width: 150px; /* Juster bildestørrelsen etter behov */
-    height: auto;
+.header-content {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 30px; 
     margin-top: 10px;
 }
 
-header nav {
-    margin-top: 10px;
+header img {
+    width: 150px;
+    height: auto;
 }
 
 header nav ul {
     list-style-type: none;
-    padding: 0;
+    display: flex; 
+    gap: 20px; 
 }
 
 header nav ul li {
-    display: inline;
-    margin: 0 10px;
+    margin: 0;
 }
+
 
 /* Stiler for seksjonen for prosjekter */
 section#prosjekter {
