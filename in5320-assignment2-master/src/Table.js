@@ -1,7 +1,21 @@
 import React from 'react';
 
-function Table({ apiData }) {
+function Table({ apiData, sortColumn, sortOrder, onSort }) {
   console.log(apiData);
+
+  const handleSort = (column) => {
+    onSort(column);
+  };
+
+  const sortedData = [...apiData].sort((a, b) => {
+    if (a[sortColumn] < b[sortColumn]) {
+      return sortOrder === "asc" ? -1 : 1;
+    }
+    if (a[sortColumn] > b[sortColumn]) {
+      return sortOrder === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
 
   if (!apiData || apiData.length === 0) {
     // If the API request isn't completed or no results, return "loading..."
@@ -12,14 +26,14 @@ function Table({ apiData }) {
       <table>
         <thead>
           <tr>
-            <th>Country</th>
-            <th>Continent</th>
-            <th>Population</th>
-            <th>Population Growth</th>
+            <th onClick={() => handleSort("Country")}>Country</th>
+            <th onClick={() => handleSort("Continent")}>Continent</th>
+            <th onClick={() => handleSort("Population")}>Population</th>
+            <th onClick={() => handleSort("PopulationGrowth")}>Population Growth</th>
           </tr>
         </thead>
         <tbody>
-          {apiData.map((country, index) => (
+          {sortedData.map((country, index) => (
             <tr key={index}>
               <td>{country.Country}</td>
               <td>{country.Continent}</td>
