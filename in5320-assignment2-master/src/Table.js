@@ -1,8 +1,10 @@
-function Table(props) {
-  console.log(props.apiData);
+import React from 'react';
 
-  if (!props.apiData.results) {
-    // If the API request isn't completed return "loading..."
+function Table({ apiData }) {
+  console.log(apiData);
+
+  if (!apiData || apiData.length === 0) {
+    // If the API request isn't completed or no results, return "loading..."
     return <p>Loading...</p>;
   } else {
     // Create table headers
@@ -17,7 +19,7 @@ function Table(props) {
           </tr>
         </thead>
         <tbody>
-          {props.apiData.results.map((country, index) => (
+          {apiData.map((country, index) => (
             <tr key={index}>
               <td>{country.Country}</td>
               <td>{country.Continent}</td>
